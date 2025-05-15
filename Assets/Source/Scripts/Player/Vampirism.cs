@@ -8,8 +8,8 @@ public class Vampirism : MonoBehaviour
 {
     [SerializeField] private VampirismVisual _vampirismVisual;
     [SerializeField] private float _duration = 6f;
-    [SerializeField] private float _tickInterval = 0.1f;
     [SerializeField] private float _cooldown = 4f;
+    [SerializeField] private float _tickInterval = 0.1f;
     [SerializeField] private float _abilityRange = 3.5f;
     [SerializeField] private int _damagePerTick = 1;
 
@@ -22,7 +22,10 @@ public class Vampirism : MonoBehaviour
     private bool _isOnCooldown;
     private bool _isActive;
 
+    public float Cooldown => _cooldown;
+    public float Duration => _duration;
     public event Action VampirismActivated;
+    public event Action CooldownStarted;
     public event Action<int> HealthAbsorbed;
 
     private void Awake()
@@ -40,6 +43,7 @@ public class Vampirism : MonoBehaviour
         {
             _isActive = true;
             _vampirismCoroutine = StartCoroutine(VampirismRoutine());
+            VampirismActivated?.Invoke();
             _vampirismVisual.Activate();
         }
     }
@@ -135,5 +139,6 @@ public class Vampirism : MonoBehaviour
 
 
         StartCoroutine(CooldownRoutine());
+        CooldownStarted?.Invoke();
     }
 }

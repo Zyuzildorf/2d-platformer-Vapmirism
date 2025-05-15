@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         _itemsCollector.ItemCollected += UseItem;
         _health.Defeated += Die;
         _playerAttacker.Attacking += _playerAnimationSetter.Attack;
-        _vampirism.HealthAbsorbed += _health.HealthRecover;
+        _vampirism.HealthAbsorbed += _health.Recover;
     }
 
     private void Update()
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
 
         if (item.TryGetComponent(out Heart heart))
         {
-            _health.HealthRecover(heart.HealtAmount);
+            _health.Recover(heart.HealtAmount);
         }
     }
 
