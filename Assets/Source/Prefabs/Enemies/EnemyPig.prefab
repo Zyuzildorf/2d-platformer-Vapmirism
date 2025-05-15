@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6027698057249139931}
   - component: {fileID: 7041722454854404697}
   - component: {fileID: 9099236191483675516}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 8182344473847801413}
   _healthBar: {fileID: 7041722454854404697}
-  _smoothSpeed: 0.5
+  _duration: 2
 --- !u!1 &2958944867543823955
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6562370341543780459}
   - component: {fileID: 3438741812053421695}
   - component: {fileID: 4551647802569918969}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BackgroundShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 4851625621156361157}
   - component: {fileID: 988888392363460505}
   - component: {fileID: 369012526408146637}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7404139525482580705}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 9192273499996500290}
   - component: {fileID: 6917576619062632030}
   - component: {fileID: 5657897934513357186}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 3014394977510362432}
   - component: {fileID: 1290752619110844900}
   - component: {fileID: 1771328205135961025}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 5728688579455833860}
   - component: {fileID: 5739550728450176324}
   - component: {fileID: 3443228371476568703}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +721,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: 3863635566180601805, guid: bb22e9cd7a3f50c41aa55c47dd8c2975, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -37,14 +37,14 @@ public class Health : MonoBehaviour
         }
     }
     
-    public void HealthRecover(Heart heart)
+    public void HealthRecover(int healValue)
     {
-        if (heart.HealtAmount < 0)
+        if (healValue < 0)
         {
             return;
         }
         
-        CurrentHealth += heart.HealtAmount;
+        CurrentHealth += healValue;
 
         if (CurrentHealth > _maxHealth)
         {

@@ -4,7 +4,8 @@ public class InputReader : MonoBehaviour
 {
     private const string Horizontal = nameof(Horizontal);
 
-    public bool IsMouseButtonPressed { get; private set; }
+    public bool IsLeftMouseButtonPressed { get; private set; }
+    public bool IsRightMouseButtonPressed { get; private set; }
     public bool IsSpacebarPressed { get; private set; }
     public float Direction { get; private set; }
 
@@ -17,7 +18,8 @@ public class InputReader : MonoBehaviour
 
     private void UpdateMouseButtonInput()
     {
-        IsMouseButtonPressed = Input.GetKeyDown(KeyCode.Mouse0);
+        IsLeftMouseButtonPressed = Input.GetKeyDown(KeyCode.Mouse0);
+        IsRightMouseButtonPressed = Input.GetKeyDown(KeyCode.Mouse1);
     }
 
     private void UpdateKeyboardInput()

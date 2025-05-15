@@ -55,4 +55,10 @@ public class PlayerAttacker : MonoBehaviour
         yield return _waitForSeconds;
         _isAttackDelayOver = true;
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, _attackRange);
+    //}
 }

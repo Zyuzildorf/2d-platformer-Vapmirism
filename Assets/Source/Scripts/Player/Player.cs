@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(ItemsCollector), typeof(InputReader),typeof(PlayerMover))]
 [RequireComponent(typeof(PlayerJumper), typeof(PlayerGroundDetector), typeof(PlayerAttacker))]
 [RequireComponent(typeof(PlayerAnimator), typeof(Health),typeof(PlayerWallet))]
+[RequireComponent(typeof(Vampirism))]
 public class Player : MonoBehaviour
 {
     private ItemsCollector _itemsCollector;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     private PlayerGroundDetector _playerGroundDetector;
     private PlayerAttacker _playerAttacker;
     private PlayerAnimator _playerAnimationSetter;
+    private Vampirism _vampirism;
 
     public Health Health => _health; 
     
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
         _playerGroundDetector = GetComponent<PlayerGroundDetector>();
         _playerAnimationSetter = GetComponent<PlayerAnimator>();
         _playerAttacker = GetComponent<PlayerAttacker>();
+        _vampirism = GetComponent<Vampirism>();        
     }
     
     private void OnEnable()
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour
         _itemsCollector.ItemCollected += UseItem;
         _health.Defeated += Die;
         _playerAttacker.Attacking += _playerAnimationSetter.Attack;
+        _vampirism.HealthAbsorbed += _health.HealthRecover;
     }
 
     private void Update()
@@ -54,9 +58,14 @@ public class Player : MonoBehaviour
             _playerJumper.Jump();
         }
 
-        if (_inputReader.IsMouseButtonPressed)
+        if (_inputReader.IsLeftMouseButtonPressed)
         {
             _playerAttacker.Attack();
+        }
+
+        if (_inputReader.IsRightMouseButtonPressed)
+        {
+            _vampirism.ActivateAbility();
         }
     }
 
@@ -76,7 +85,7 @@ public class Player : MonoBehaviour
 
         if (item.TryGetComponent(out Heart heart))
         {
-            _health.HealthRecover(heart);
+            _health.HealthRecover(heart.HealtAmount);
         }
     }
 
